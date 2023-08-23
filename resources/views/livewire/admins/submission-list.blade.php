@@ -3,3 +3,5 @@
         {{ $submission->nik }} - {{ $submission->Statuses->description }}</a>
     <br>
 @endforeach
+
+
