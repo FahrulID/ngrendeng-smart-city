@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Users;
 
 use App\Http\Livewire\BaseController;
 use App\Http\Services\FormService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -28,7 +29,7 @@ class NgisiForm extends Component
     public function mount()
     {
         $this->current_id = request()->route("id");
-        $this->nik = auth()->user()->nik;
+        $this->nik = Auth::guard('users')->user()->nik;
         $this->getFields();
         $this->getForm();
     }
