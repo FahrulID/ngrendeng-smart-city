@@ -9,13 +9,17 @@ class DatabaseSeeder extends Seeder
 {
     protected $seeders = [
         'local' => [
+            AdminsSeeder::class,
             StatusType::class,
+            FieldTypeSeeder::class,
             FieldsSeeder::class,
             FormsSeeder::class,
             FormHasFieldSeeder::class,
         ],
         'production' => [
+            AdminsSeeder::class,
             StatusType::class,
+            FieldTypeSeeder::class,
             FieldsSeeder::class,
             FormsSeeder::class,
             FormHasFieldSeeder::class,

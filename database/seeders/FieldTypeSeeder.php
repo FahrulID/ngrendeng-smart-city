@@ -6,11 +6,11 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class FormHasFieldSeeder extends Seeder
+class FieldTypeSeeder extends Seeder
 {
     public function run()
     {
-        $json = file_get_contents(database_path('seeders/json/form_has_field.json'));
+        $json = file_get_contents(database_path('seeders/json/field_type.json'));
         $fields = json_decode($json, true);
         if ($this->checkIfSeeded($fields)) {
             return;
@@ -18,15 +18,15 @@ class FormHasFieldSeeder extends Seeder
 
         $payload = [];
         foreach ($fields as $field) {
-            if (DB::table('form_has_field')->where('forms_id', $field['forms_id'])->where('fields_id', $field['fields_id'])->count() > 0)
+            if (DB::table('field_types')->where('id', $field['id'])->count() > 0)
                 continue;
 
             $payload[] = [
-                "forms_id" => $field['forms_id'],
-                "fields_id" => $field['fields_id'],
+                "id" => $field['id'],
+                "type" => $field['type'],
             ];
         }
-        DB::table('form_has_field')->insert($payload);
+        DB::table('field_types')->insert($payload);
     }
 
     public function checkIfSeeded(array $id): bool
@@ -34,7 +34,7 @@ class FormHasFieldSeeder extends Seeder
         $seeded = true;
 
         for ($i = 0; $i < count($id); $i++) {
-            $table_rows = DB::table('form_has_field')->where('forms_id', $id[$i]['forms_id'])->where('fields_id', $id[$i]['fields_id'])->count();
+            $table_rows = DB::table('field_types')->where('id', $id[$i]['id'])->count();
             if ($table_rows === 0) {
                 $seeded = false;
                 break;
