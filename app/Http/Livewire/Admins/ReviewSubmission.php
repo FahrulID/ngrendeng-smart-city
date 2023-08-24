@@ -34,7 +34,7 @@ class ReviewSubmission extends Component
 
     public function render()
     {
-        return view('livewire.admins.review-submission')->layout('layouts.only-layout');
+        return view('livewire.admins.review-submission')->layout('layouts.layout-users');
     }
 
     public function getForm()

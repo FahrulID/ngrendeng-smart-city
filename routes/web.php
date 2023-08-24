@@ -46,6 +46,7 @@ Route::middleware(['auth.ngrendeng.admin'])->prefix('admin')->group(function () 
     });
 
     Route::get('/logout', \App\Http\Livewire\Admins\Logout::class)->name('logout');
+    Route::get('/home', \App\Http\Livewire\Admins\Home::class)->name('home');
 
     Route::get('/submissions', \App\Http\Livewire\Admins\SubmissionList::class)->name('submissions');
     Route::get('/submissions/{id}', \App\Http\Livewire\Admins\ReviewSubmission::class)->name('submissions.preview');

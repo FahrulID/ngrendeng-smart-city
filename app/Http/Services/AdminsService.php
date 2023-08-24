@@ -35,7 +35,7 @@ class AdminsService
     public function getSubmissions()
     {
         // get FormSubmissions with id in array
-        $id = [1, 2];
+        $id = [1, 2, 3, 4];
         $submissions = FormSubmissions::whereIn('status_id', $id)->get();
 
         return $submissions;
@@ -112,5 +112,20 @@ class AdminsService
         $title = strtolower($title);
 
         return $title;
+    }
+
+    public function getStats(): array
+    {
+        $diterima = FormSubmissions::where('status_id', 1)->count();
+        $ditolak = FormSubmissions::where('status_id', 3)->count();
+        $tandatangan = FormSubmissions::where('status_id', 2)->count();
+        $siapcetak = FormSubmissions::where('status_id', 4)->count();
+
+        return [
+            'diterima' => $diterima,
+            'ditolak' => $ditolak,
+            'tandatangan' => $tandatangan,
+            'siapcetak' => $siapcetak,
+        ];
     }
 }

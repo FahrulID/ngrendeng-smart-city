@@ -28,7 +28,7 @@ class Login extends Component
         try {
             $this->adminsService->login($this->username, $this->password);
 
-            $this->redirectWithToast('home', 'success', 'Login berhasil', 'Selamat datang di aplikasi ini.');
+            $this->redirectWithToast('/admin/home', 'success', 'Login berhasil', 'Selamat datang di aplikasi ini.');
         } catch (\Exception $e) {
             $this->dispatchToast('error', 'Gagal Login', $e->getMessage());
         }
