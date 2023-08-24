@@ -30,7 +30,7 @@ class SuratKuDetail extends Component
 
     public function render()
     {
-        return view('livewire.users.surat-ku-detail')->layout('layouts.only-layout');
+        return view('livewire.users.surat-ku-detail')->layout('layouts.layout-users');
     }
 
     public function getSurat()

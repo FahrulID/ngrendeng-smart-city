@@ -26,7 +26,7 @@ class ListForm extends Component
 
     public function render()
     {
-        return view('livewire.users.list-form')->layout("layouts.only-layout");
+        return view('livewire.users.list-form')->layout("layouts.layout-users");
     }
 
     public function getForms()

@@ -36,7 +36,7 @@ class NgisiForm extends Component
 
     public function render()
     {
-        return view('livewire.users.ngisi-form')->layout('layouts.only-layout');
+        return view('livewire.users.ngisi-form')->layout('layouts.layout-users');
     }
 
     public function getForm()
@@ -70,6 +70,6 @@ class NgisiForm extends Component
         }
         DB::commit();
 
-        $this->redirectWithToast('form', 'success', 'Form berhasil dikirimkan', 'Form berhasil dikirimkan, silahkan tunggu konfirmasi dari admin.');
+        $this->redirectWithToast('home', 'success', 'Form berhasil dikirimkan', 'Form berhasil dikirimkan, silahkan tunggu konfirmasi dari admin.');
     }
 }

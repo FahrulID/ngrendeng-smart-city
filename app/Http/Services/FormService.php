@@ -59,7 +59,7 @@ class FormService
         foreach ($fields as $field) {
             $submission_field_id = Uuid::uuid4()->toString();
 
-            if ($field['type'] == 'file') {
+            if ($field['type'] == 'file' && !is_string($field['value'])) {
                 $file = FileUpload::create($field['value'], 'forms', $submission_field_id, $field['value']->getClientOriginalName());
                 $file->upload();
                 $field['value'] = $file->getUrl();

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('form.list');
 });
 
 Route::middleware(['guest'])->group(function () {
@@ -32,7 +32,7 @@ Route::middleware(['auth.ngrendeng.user'])->group(function () {
     });
     Route::get('/logout', \App\Http\Livewire\Logout::class)->name('logout');
 
-    Route::get('/form', \App\Http\Livewire\Users\ListForm::class)->name('form.list');
+    Route::get('/home', \App\Http\Livewire\Users\ListForm::class)->name('form.list');
     Route::get('/form/new/{id}', \App\Http\Livewire\Users\NgisiForm::class)->name('form.isi');
 
     Route::get('/form/my/', \App\Http\Livewire\Users\SuratKu::class)->name('form.my');

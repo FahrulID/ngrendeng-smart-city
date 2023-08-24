@@ -180,7 +180,6 @@
 
         .kotakcyan {
             width: 328px;
-            height: 48px;
             flex-shrink: 0;
             border-radius: 10px 10px 0px 0px;
             box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
@@ -485,7 +484,11 @@
     </style>
 </head>
 
-<body>
+<body id="body">
+    <a href="{{ url()->previous() }}">
+        <i class="fa-solid fa-arrow-left" style="color: #ffffff;padding-top:22px;padding-left:22px;"></i>
+    </a>
+
     {{ $slot }}
 
     @livewireScripts
