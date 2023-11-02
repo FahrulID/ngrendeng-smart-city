@@ -54,7 +54,7 @@ class ReviewSubmission extends Component
     {
         try {
             $docx = $this->adminsService->getDocx($this->submission_id);
-            return redirect()->to($docx);
+            redirect()->to($docx);
         } catch (\Exception $e) {
             $this->dispatchToast('error', 'Gagal', $e->getMessage());
         }
